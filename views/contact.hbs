@@ -1,0 +1,120 @@
+
+
+<div id="content" ><!-- content Starts -->
+
+<div class="container" ><!-- container Starts -->
+
+<div class="col-md-12" ><!--- col-md-12 Starts -->
+
+<ul class="breadcrumb" ><!-- breadcrumb Starts -->
+
+<li>
+<a href="/">Home</a>
+</li>
+
+<li>Contact Us</li>
+
+</ul><!-- breadcrumb Ends -->
+
+
+ {{#each errorMessages}}
+        <div class = "alert alert-danger">
+        {{this.msg}}
+</div>
+{{/each}}
+
+</div><!--- col-md-12 Ends -->
+
+
+
+<div class="col-md-12" ><!-- col-md-12 Starts -->
+
+<div class="box" ><!-- box Starts -->
+
+<form method="post" ><!-- form Starts -->
+
+<div class="form-group" ><!-- form-group Starts -->
+
+<label>Name</label>
+
+<input type="text" class="form-control" name="name" >
+
+</div><!-- form-group Ends -->
+
+<div class="form-group"><!-- form-group Starts -->
+
+<label>Email</label>
+
+<div class="input-group"><!-- input-group Starts -->
+
+<span class="input-group-addon"><!-- input-group-addon Starts -->
+
+<i class="fa fa-check tickemail"> </i>
+
+<i class="fa fa-times crossemail"> </i>
+
+</span><!-- input-group-addon Ends -->
+
+<input type="email" value = "{{user.email}}" class="form-control" id="email" name="email">
+
+<span class="input-group-addon"><!-- input-group-addon Starts -->
+
+
+</span><!-- input-group-addon Ends -->
+
+</div><!-- input-group Ends -->
+
+</div><!-- form-group Ends -->
+
+<div class="form-group"><!-- form-group Starts -->
+
+<label>Message</label>
+
+<textarea class="form-control" id="message" name="message"></textarea>
+
+</div><!-- form-group Ends -->
+
+<div class="text-center"><!-- text-center Starts -->
+
+<button type="submit" name="submit" class="btn btn-primary">
+
+<i class="fa fa-user-md"></i> Send Message
+
+</button>
+
+</div><!-- text-center Ends -->
+
+</form><!-- form Ends -->
+
+
+</div><!-- box Ends -->
+
+</div><!-- col-md-12 Ends -->
+
+
+
+</div><!-- container Ends -->
+</div><!-- content Ends -->
+
+<script>
+        $(document).ready(function () {
+          $('.tickemail').hide();
+          $('.crossemail').hide();
+        
+            $('#email').keyup(function () {
+                var re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+
+                if (re.test($(this).val())) {
+                 $('.tickemail').show();
+                 $('.crossemail').hide();
+                 
+
+                } else {
+
+                    $('.tickemail').hide();
+                    $('.crossemail').show();
+                   
+                }
+            });
+        });
+    </script>

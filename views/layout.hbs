@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>{{title}}</title>
+    <head>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+        <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
+
+       
+        <link rel="stylesheet" href="/stylesheets/bootstrap.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.25.0/codemirror.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.25.0/theme/monokai.min.css">
+
+
+        <link rel='stylesheet' href='/stylesheets/style.css' />
+        <link rel="stylesheet" href="/stylesheets/font-awesome.min.css">
+        
+
+
+       
+        <script src="/javascripts/jquery.min.js"> </script>
+        <script src="/javascripts/bootstrap.min.js"></script>
+         <script src ="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.25.0/codemirror.min.js"></script>
+        <script src ="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.25.0/mode/javascript/javascript.min.js"></script>
+        <script src ="/plugins/ot/ot.js"></script>
+        <script src ="/socket.io/socket.io.js"></script>
+        <script src="https://my-own-peer-network.herokuapp.com/peer/peer.js"></script>
+
+    </head>
+
+
+<body>
+
+    <button onclick="topFunction()" id="myBtn" title="Go to top">Top</button>
+   <div class="navbar navbar-default" id="navbar"><!-- navbar navbar-default Starts -->
+<div class="container" ><!-- container Starts -->
+
+<div class="navbar-header"><!-- navbar-header Starts -->
+
+<a class="navbar-brand home" href="/" ><!--- navbar navbar-brand home Starts -->
+
+<img src="/images/girl.png" alt="Code-Editor logo" class="hidden-xs" height="100%" >
+<img src="/images/girl.png" alt="Code-Editor logo" class="visible-xs" >
+
+</a><!--- navbar navbar-brand home Ends -->
+
+<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navigation"  >
+
+<span class="sr-only" >Toggle Navigation </span>
+
+<i class="fa fa-align-justify"></i>
+
+</button>
+
+
+</div><!-- navbar-header Ends -->
+
+<div class="navbar-collapse collapse" id="navigation" ><!-- navbar-collapse collapse Starts -->
+
+<div class="padding-nav" ><!-- padding-nav Starts -->
+
+<ul class="nav navbar-nav navbar-left"><!-- nav navbar-nav navbar-left Starts -->
+
+<li>
+<a href="/"> HOME </a>
+</li>
+
+<li>
+<a href="/about"> ABOUT US </a>
+</li>
+
+
+<li>
+<a href="/contact"> CONTACT US </a>
+</li>
+{{#if user}}
+<li>
+<a href="/task-share"> TASK SHARE </a>
+</li>
+{{/if}}
+
+
+</ul><!-- nav navbar-nav navbar-left Ends -->
+
+<ul class="nav navbar-nav navbar-right">
+    {{#if user}}
+     <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">{{user.name}}<span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><a href="#">Account</a></li>
+            <li><a href="#">Another action</a></li>
+            <li><a href="#">Something else here</a></li>
+            <li role="separator" class="divider"></li>
+            <li><a href="/logout">Logout</a></li>
+    
+          </ul>
+        </li>
+
+    {{else}}
+
+    <li>
+        <a href="/login"> login </a>
+    </li>
+
+    <li>
+        <a href="/register"> Register </a>
+    </li>
+    {{/if}}
+</ul>
+
+</span><!-- input-group-btn Ends -->
+
+</div><!-- input-group Ends -->
+
+
+</div><!-- collapse clearfix Ends -->
+
+</div><!-- navbar-collapse collapse Ends -->
+
+</div><!-- container Ends -->
+</div><!-- navbar navbar-default Ends -->
+
+    {{{body}}}
+ 
+</body>
+
+<script>
+// When the user scrolls down 20px from the top of the document, show the button
+window.onscroll = function() {scrollFunction()};
+
+function scrollFunction() {
+    if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+        document.getElementById("myBtn").style.display = "block";
+    } else {
+        document.getElementById("myBtn").style.display = "none";
+    }
+}
+
+// When the user clicks on the button, scroll to the top of the document
+function topFunction() {
+    document.body.scrollTop = 0;
+    document.documentElement.scrollTop = 0;
+}
+</script>
+</html>
